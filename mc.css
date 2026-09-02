@@ -573,7 +573,7 @@ h1,h2,h3,h4{margin:0;line-height:1.45;letter-spacing:.02em;font-weight:900;
       rgba(24,20,17,.95) 0%,rgba(24,20,17,.78) 26%,
       rgba(24,20,17,.30) 58%,rgba(24,20,17,.12) 76%,rgba(24,20,17,.55) 100%);
   }
-  .hero-in{width:100%;padding:0 var(--pad) 22px}
+  .hero-in{width:100%;padding:0 var(--pad) 88px}  /* 下の固定CTAバーぶん空ける */
   .hero-card{
     background:none;border:0;outline:0;box-shadow:none;
     padding:0;max-width:none;border-radius:0;
