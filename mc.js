@@ -137,6 +137,8 @@
     if (!reduce && !slow) {
       var src = (window.innerWidth <= 820 && hv.dataset.srcSm) ? hv.dataset.srcSm : hv.dataset.src;
       hv.setAttribute('preload', 'auto');
+      hv.disablePictureInPicture = true;
+      hv.setAttribute('disableremoteplayback', '');
       hv.src = src;
       var p = hv.play();
       if (p && p.catch) p.catch(function () { /* autoplay blocked: poster stays */ });
