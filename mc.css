@@ -580,6 +580,17 @@ h1,h2,h3,h4{margin:0;line-height:1.45;letter-spacing:.02em;font-weight:900;
   .hero-side{display:none}
   .hero-rule b{font-size:10.5px;letter-spacing:.24em}
 
+  /* 実績帯：2列に折り返す（4列のままだと右端が見切れる） */
+  .stats ul{flex-wrap:wrap;padding-inline:0}
+  .stats li{
+    flex:1 1 50%;min-width:0;max-width:50%;padding:14px 10px;
+    border-right:0;border-bottom:1px solid rgba(255,255,255,.22);
+  }
+  .stats li:nth-child(odd){border-right:1px solid rgba(255,255,255,.22)}
+  .stats li:nth-last-child(-n+2){border-bottom:0}
+  .stats b{font-size:23px}
+  .stats small{font-size:11px;line-height:1.55}
+
   /* 3つの約束：左揃えの縦並びに */
   .promise ul{grid-template-columns:1fr;padding-block:4px}
   .promise li{
