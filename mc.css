@@ -45,6 +45,7 @@ table{border-collapse:collapse;width:100%}
 ::selection{background:var(--vm);color:#fff}
 
 .maru{font-weight:900}
+.nb{white-space:nowrap}
 .mincho{font-weight:900;letter-spacing:.01em}
 body::before{
   content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;
@@ -89,7 +90,8 @@ h1,h2,h3,h4{margin:0;line-height:1.45;letter-spacing:.02em;font-weight:900;
 .hd-top{max-width:1280px;margin:0 auto;padding:10px var(--pad);display:flex;align-items:center;gap:20px}
 .brand{display:flex;flex-direction:column;line-height:1.15;gap:3px;flex-shrink:0}
 .brand b{font-weight:900;font-size:22px;letter-spacing:.03em;color:var(--vm)}
-.brand span{font-size:10px;letter-spacing:.14em;color:var(--ink-2);font-weight:700}
+.brand span{font-size:10px;letter-spacing:.14em;color:var(--ink-2);font-weight:700;white-space:nowrap}
+.brand span .bl{font-weight:700}
 .hd-tel{margin-left:auto;display:flex;align-items:center;gap:14px}
 .hd-tel .cap{text-align:right;font-size:11.5px;font-weight:700;color:var(--ink-2);line-height:1.55}
 .hd-tel .num{
@@ -600,7 +602,16 @@ h1,h2,h3,h4{margin:0;line-height:1.45;letter-spacing:.02em;font-weight:900;
   .f-grid,.pts,.ft-top{grid-template-columns:1fr}
   .info dl{grid-template-columns:1fr}
   .info dt{padding-bottom:6px;border-bottom:0}
-  .gal{grid-template-columns:1fr 1fr}
+  /* ギャラリー：キャプションを写真の下に出す（重ねると読みにくいため） */
+  .gal{grid-template-columns:1fr 1fr;gap:16px 10px}
+  .gal figure{aspect-ratio:auto;border-radius:0;overflow:visible;background:none}
+  .gal figure.big{grid-column:span 2}
+  .gal img{aspect-ratio:3/2;border-radius:var(--r)}
+  .gal figcaption{
+    position:static;padding:8px 1px 0;background:none;color:var(--ink);
+    font-size:12.5px;font-weight:900;line-height:1.55;
+  }
+  .gal figcaption span{color:var(--vm-deep);font-size:11px;font-weight:700}
 
   /* セクション見出し */
   .sec{padding:48px 0}
@@ -634,13 +645,17 @@ h1,h2,h3,h4{margin:0;line-height:1.45;letter-spacing:.02em;font-weight:900;
 }
 @media (max-width:400px){
   .brand b{font-size:16px}
-  .brand span{font-size:8.8px}
+  .brand span{font-size:9.5px}
+  .brand span .bl{display:none}
   .btn{padding:14px 18px;font-size:15px}
   .btn--lg{padding:16px 18px;font-size:16px}
   .hero h1{font-size:22px}
   .sec-title h2{font-size:21.5px}
   .promise li{grid-template-columns:1fr;row-gap:5px}
   .count b{font-size:27px}
-  .gal{grid-template-columns:1fr}
-  .gal figure.big{grid-column:span 1}
+  .gal{grid-template-columns:1fr 1fr}
+  .gal figure.big{grid-column:span 2}
 }
+
+/* ---------- demo only ---------- */
+.demo-flag{position:relative;z-index:95;background:var(--ink);color:#ffd9c9;font-size:12px;font-weight:700;letter-spacing:.02em;text-align:center;padding:8px 14px;line-height:1.65}
