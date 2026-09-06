@@ -628,13 +628,22 @@ h1,h2,h3,h4{margin:0;line-height:1.45;letter-spacing:.02em;font-weight:900;
   .f-grid,.pts,.ft-top{grid-template-columns:1fr}
   .info dl{grid-template-columns:1fr}
   .info dt{padding-bottom:6px;border-bottom:0}
-  /* ギャラリー：キャプションを写真の下に出す（重ねると読みにくいため） */
-  .gal{grid-template-columns:1fr 1fr;gap:16px 10px}
-  .gal figure{aspect-ratio:auto;border-radius:0;overflow:visible;background:none}
+  /* ギャラリー：キャプションを写真の下に出す（重ねると読みにくいため）
+     figure の高さは中身なりにする。aspect-ratio を figure に残すと
+     キャプションが枠外にはみ出して次の行の写真に重なる。 */
+  .gal{grid-template-columns:1fr 1fr;gap:18px 10px;align-items:start}
+  .gal figure,
+  .gal figure.big{
+    display:block;aspect-ratio:auto;height:auto;
+    border-radius:0;overflow:visible;background:none;
+  }
   .gal figure.big{grid-column:span 2}
-  .gal img{aspect-ratio:3/2;border-radius:var(--r)}
+  .gal figure img{
+    display:block;width:100%;height:auto;aspect-ratio:3/2;
+    object-fit:cover;border-radius:var(--r);
+  }
   .gal figcaption{
-    position:static;padding:8px 1px 0;background:none;color:var(--ink);
+    position:static;inset:auto;padding:8px 1px 0;background:none;color:var(--ink);
     font-size:12.5px;font-weight:900;line-height:1.55;
   }
   .gal figcaption span{color:var(--vm-deep);font-size:11px;font-weight:700}
